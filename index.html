@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html> 
+<meta name="content-type" content="text/html; charset=UTF-8"> 
+
+<head>
+    <title>武士装备计算器</title>
+</div>
+
+</head>
+
+<body>
+    
+    
+    <div style = "width: 35%; 
+                  margin-left: 20px;
+                  margin-top: 20px;
+                  margin-bottom: 20px; 
+                  padding: 20px; 
+                  background-color: #e01f1f;
+                  border: 1px solid #ffffff; 
+                  border-radius: 4px; 
+                  box-shadow: 0 0 30px black;">
+        <h1 style="color:#ddd;">武士装备属性计算器</h1>
+        <b><font size="2" style="color:#ddd;">ver 1.0.6 | game_ver: 4.1</font></b>
+            
+            <div style = "background-color: #a9a9a9; 
+                      padding: 20px; 
+                      border-radius: 4px;
+                      box-shadow: 0 0 30px black;
+                      margin-top: 20px;">
+                      
+            <b class="lead">属性</b>
+            <hr></hr>            
+            <b>
+            <br/>  <label for="main">力量：</label> 
+                <input
+                id="main" name="main" required="true" 
+                placeholder="请输入数字..."/> <br />
+            
+            <br /> <label for="direct">直击：</label> 
+                <input
+                id="direct" name="direct" required="true" 
+                placeholder="请输入数字..."/> <br />
+            
+            <br /> <label for="critical">暴击：</label> 
+                <input
+                id="critical" name="critical" required="true" 
+                placeholder="请输入数字..."/> <br />
+            
+            <br /> <label for="faith">信念：</label>
+                <input
+                id="faith" name="faith" required="true" 
+                placeholder="请输入数字..."/> <br />
+            
+            <br /> <label for="speed">技速：</label> 
+                <input
+                id="speed" name="speed" required="true" 
+                placeholder="请输入数字..."/> <br />
+            <td>        
+                <input type="submit" onclick="calResult()" value="计算" 
+                style="margin-top: 20px; margin-left: 170px;">
+            </td>
+            </b>
+            </div>
+            <div style = "background-color: #a9a9a9; 
+                      padding: 20px; 
+                      border-radius: 4px;
+                      box-shadow: 0 0 30px black;
+                      margin-top: 20px;"> 
+                <b>
+                <span> 综合威力：<input disabled="disabled" type="text" id = "result" placeholder="暂无数据"/></span>
+                <br></br>
+                <span> 上次记录：<input disabled="disabled" type="text" id = "history" placeholder="暂无数据"/></span>
+                
+                <hr></hr>
+                <em><font size="3">注*：如果结果是NaN说明输入的数据有问题.</font></em>
+                </b>                
+            </div>
+    </div>
+    
+      
+    
+    <script type="text/javascript">
+        var val = "暂无数据";
+        var his = "暂无数据";
+        var main_weight = 1.0;
+        var direct_weight = 0.132;
+        var critical_weight = 0.11;
+        var faith_weight = 0.124;
+        var speed_weight = 0.124;
+        function calResult() {
+            val = document.getElementById("main").value * main_weight +
+                  document.getElementById("direct").value * direct_weight +
+                  document.getElementById("critical").value * critical_weight +
+                  document.getElementById("faith").value * faith_weight +
+                  document.getElementById("speed").value * speed_weight;
+            result.value = val;
+            document.getElementById("history").value = his;
+            his = val;
+            cleanInput();
+        }
+        function cleanInput() {
+            document.getElementById("main").value = '';
+            document.getElementById("direct").value = '';
+            document.getElementById("critical").value = '';
+            document.getElementById("faith").value = '';
+            document.getElementById("speed").value = '';
+        }
+       
+    </script>
+</body>
+</html>
