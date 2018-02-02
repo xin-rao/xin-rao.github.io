@@ -3,7 +3,7 @@
 <meta name="content-type" content="text/html; charset=UTF-8">
 
 <head>
-<title>武士装备计算器</title>
+<title>武僧装备计算器</title>
 <link rel="stylesheet" href="../css/panel.css" type="text/css" />
 <link rel="stylesheet" href="../css/icon.css" type="text/css" />
 </head>
@@ -12,9 +12,9 @@
 
 
 	<div class="basepanel">
-		<h1 style="color: #ffffff;"><img src="../img/sam.png" title="武僧" alt="monk" class="titleicon">武士装备属性计算器</h1>
-		<b><font size="2" style="color: #ffffff;">ver 1.0.8 |
-				game_ver: 4.1</font></b>
+		
+		<h2 style="color: #ffffff;"><img src="../img/mon.png" title="武僧" alt="monk" class="titleicon">武僧装备属性计算器</h2>		
+		<b><font size="2" style="color: #ffffff;">ver 1.0.8 | game_ver: 4.1</font></b>
 
 		<div class="secondarypanel">
 
@@ -53,32 +53,32 @@
 
 
 	<script type="text/javascript">
-        var val = "暂无数据";
-        var his = "暂无数据";
-        var main_weight = 1.0;
-        var direct_weight = 0.132;
-        var critical_weight = 0.11;
-        var faith_weight = 0.124;
-        var speed_weight = 0.124;
-        function calResult() {
-            val = document.getElementById("main").value * main_weight +
-                  document.getElementById("direct").value * direct_weight +
-                  document.getElementById("critical").value * critical_weight +
-                  document.getElementById("faith").value * faith_weight +
-                  document.getElementById("speed").value * speed_weight;
-            result.value = val;
-            document.getElementById("history").value = his;
-            his = val;
-            cleanInput();
-        }
-        function cleanInput() {
-            document.getElementById("main").value = '';
-            document.getElementById("direct").value = '';
-            document.getElementById("critical").value = '';
-            document.getElementById("faith").value = '';
-            document.getElementById("speed").value = '';
-        }
-       
-    </script>
+		var val = "暂无数据";
+		var his = "暂无数据";
+		var main_weight = 1.0;
+		var direct_weight = 0.131;
+		var critical_weight = 0.132;
+		var faith_weight = 0.125;
+		var speed_weight = 0.105;
+		function calResult() {
+			val = document.getElementById("main").value * main_weight
+					+ document.getElementById("direct").value * direct_weight
+					+ document.getElementById("critical").value
+					* critical_weight + document.getElementById("faith").value
+					* faith_weight + document.getElementById("speed").value
+					* speed_weight;
+			result.value = val;
+			document.getElementById("history").value = his;
+			his = val;
+			cleanInput();
+		}
+		function cleanInput() {
+			document.getElementById("main").value = '';
+			document.getElementById("direct").value = '';
+			document.getElementById("critical").value = '';
+			document.getElementById("faith").value = '';
+			document.getElementById("speed").value = '';
+		}
+	</script>
 </body>
 </html>

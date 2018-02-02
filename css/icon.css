@@ -1,0 +1,22 @@
+.unavailableIcon{
+	filter:grayscale(100%);
+	width:45px;
+	height:45px;
+	box-shadow: 30px black;
+}
+
+.availableIcon {
+	width:45px; 
+	height:45px;
+	box-shadow: 30px black;
+}
+
+.titleicon {
+	width:35px; 
+	height:35px;
+	box-shadow: 30px black;
+}
+
+.div-inline { 
+	display:inline;
+}
