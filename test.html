@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<head>
+<title>吟游诗人装备计算器</title>
+<link rel="stylesheet" href="../css/panel.css" type="text/css" />
+<link rel="stylesheet" href="../css/icon.css" type="text/css" />
+</head>
+
+<body style="background-color: #333333;">
+
+
+	<div class="basepanel">
+
+			<b> <span> 结果：<input disabled="disabled" type="text"
+					id="result" placeholder="..." /></span> 
+			</b>
+
+			<input type="submit" onclick="calResult()" value="再抽一次"
+							style="margin-top: 20px;">
+	</div>
+
+
+
+	<script type="text/javascript">
+		var val = 0;
+		function calResult() {
+			val = Math.floor(Math.random() * 3);
+			if(val == 1) {
+				document.getElementById("result").value = "锻铁";
+			} else if (val == 2) {
+				document.getElementById("result").value = "裁衣";
+			} else {
+				document.getElementById("result").value = "制革";
+			}
+
+		}
+	</script>
+</body>
+</html>
