@@ -12,7 +12,6 @@
 		.inputbox {
 			position: absolute;
 			z-index: 2;
-			width:50;
 		}
 	</style>
 </head>
@@ -43,9 +42,15 @@
 		<a href="hunttool.html"><input type="submit" value="返回列表" style="position: absolute;z-index: 2;left: 0px;top: 0px""></a>
 		
 		<div style="position: absolute;z-index: 2;left: 0px;top: 610px">拉诺西亚高地:</div>
-		<input type="text" id="x" class="inputbox" style="display:inline;left: 140px;top: 610px" placeholder="x">
-		<input type="text" id="y" class="inputbox" style="display:inline;left: 190px;top: 610px" placeholder="y">
+		<input type="text" id="x" class="inputbox" style="display:inline;left: 140px;top: 610px;width:50;" placeholder="x">
+		<input type="text" id="y" class="inputbox" style="display:inline;left: 190px;top: 610px;width:50;" placeholder="y">
 		<input type="submit" onclick="importCdt()" class="inputbox" value="导入" style="display:inline;left: 250px;top: 610px">
+		
+		<input type="text" id="autosave" class="inputbox" style="display:inline;left: 0px;top: 640px;width:300;" placeholder="...">
+		<input type="submit" onclick="exportsave()" class="inputbox" value="生成并复制存档" style="display:inline;left: 320px;top: 640px">
+		
+		<input type="text" id="save" class="inputbox" style="display:inline;left: 550px;top: 640px;width:300;" placeholder="存档字符串">
+		<input type="submit" onclick="importsave()" class="inputbox" value="导入存档" style="display:inline;left: 850px;top: 640px">
 	</div>
 	
 	<script>
@@ -70,17 +75,48 @@
 		function importCdt() {
 			var minlength = 9999;
 			var idx = -1;
-			var xc = document.getElementById("x").value;
-			var yc = document.getElementById("y").value;
+			try {
+				var xc = document.getElementById("x").value;
+				var yc = document.getElementById("y").value;
+				for(var i=0; i<pnts.length; i++) {
+					var dist = (xc-pnts[i][0]) * (xc-pnts[i][0]) + (yc-pnts[i][1])*(xc-pnts[i][0])
+					if(dist < minlength) {
+						idx = i;
+						minlength = dist;
+					}
+				}
+				document.getElementById(idx).checked=true;
+			} catch(err) {
+				alert("输入数据有问题哟，请输入正数或者小数");
+			}
+			
+		}
+		
+		function exportsave() {
+			var str= "LaNoscea_highland,";
 			for(var i=0; i<pnts.length; i++) {
-				var dist = (xc-pnts[i][0]) * (xc-pnts[i][0]) + (yc-pnts[i][1])*(xc-pnts[i][0])
-				if(dist < minlength) {
-					idx = i;
-					minlength = dist;
+				if(document.getElementById(i).checked) {
+					str += i + ",";
 				}
 			}
-			console.log(idx);
-			document.getElementById(idx).checked=true;
+			str = str.substring(0, str.length - 1);
+			document.getElementById("autosave").value = str;
+			var temp = document.getElementById("autosave");
+			temp.select();
+			document.execCommand("copy");
+			alert("存档已复制:\n" + str);
+		}
+		
+		function importsave() {
+			var arr = document.getElementById("save").value.split(",");
+			if(arr[0] != "LaNoscea_highland") {
+				alert("存档位置有问题哟，此存档不是【拉诺西亚高地】的存档");
+			} else {
+				for(var i=1; i<arr.length; i++) {
+					document.getElementById(arr[i]).checked = true;
+				}
+				alert("存档导入完毕！");
+			}
 		}
 	</script>
 </body>
