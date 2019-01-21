@@ -60,6 +60,8 @@
   			<option>通讯贝8</option>
 		</select>
 		<input type="text" id="autosave" class="inputbox" style="display:inline;left: 90px;top: 640px;width:300;" placeholder="...">
+		<input type="checkbox" id="link" class="inputbox" style="display:inline;left: 90px;top: 670px;">
+		<label class="inputbox" style="display:inline;left: 110px;top: 670px;width:300;">带上此网页链接</label>
 		<input type="submit" onclick="exportsave()" class="inputbox" value="生成并复制存档" style="display:inline;left: 400px;top: 640px">
 		
 		<input type="text" id="save" class="inputbox" style="display:inline;left: 600px;top: 640px;width:300;" placeholder="存档字符串">
@@ -136,7 +138,9 @@
 				}
 			}
 			str = str.substring(0, str.length - 1);
-			str += "(链接：https://xin-rao.github.io/hunt/highland.html)"
+			if(document.getElementById("link").checked) {
+				str += " (链接:https://xin-rao.github.io/hunt/highland.html)"
+			}
 			document.getElementById("autosave").value = str;
 			var temp = document.getElementById("autosave");
 			temp.select();
@@ -149,10 +153,14 @@
 			if(arr[0] != "LaNoscea_highland") {
 				alert("存档位置有问题哟，此存档不是【拉诺西亚高地】的存档");
 			} else {
-				for(var i=1; i<arr.length; i++) {
-					document.getElementById(arr[i]).checked = true;
+				try {
+					for(var i=1; i<arr.length; i++) {
+						document.getElementById(arr[i]).checked = true;
+					}
+					alert("存档导入完毕！");
+				} catch (err) {
+					alert("存档数据不对哟，请检查后再次输入");
 				}
-				alert("存档导入完毕！");
 			}
 		}
 	</script>
