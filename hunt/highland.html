@@ -42,15 +42,28 @@
 		<a href="hunttool.html"><input type="submit" value="返回列表" style="position: absolute;z-index: 2;left: 0px;top: 0px""></a>
 		
 		<div style="position: absolute;z-index: 2;left: 0px;top: 610px">拉诺西亚高地:</div>
-		<input type="text" id="x" class="inputbox" style="display:inline;left: 140px;top: 610px;width:50;" placeholder="x">
-		<input type="text" id="y" class="inputbox" style="display:inline;left: 190px;top: 610px;width:50;" placeholder="y">
-		<input type="submit" onclick="importCdt()" class="inputbox" value="导入" style="display:inline;left: 250px;top: 610px">
+		<input type="text" id="x" class="inputbox" style="display:inline;left: 120px;top: 610px;width:50;" placeholder="x">
+		<input type="text" id="y" class="inputbox" style="display:inline;left: 170px;top: 610px;width:50;" placeholder="y">
+		<input type="submit" onclick="importCdt()" class="inputbox" value="导入" style="display:inline;left: 220px;top: 610px">
 		
-		<input type="text" id="autosave" class="inputbox" style="display:inline;left: 0px;top: 640px;width:300;" placeholder="...">
-		<input type="submit" onclick="exportsave()" class="inputbox" value="生成并复制存档" style="display:inline;left: 320px;top: 640px">
+		<select id="channel" class="inputbox" style="display:inline;left: 0px;top: 640px;width:80;">
+  			<option>无</option>
+  			<option>小队</option>
+  			<option>部队</option>
+  			<option>通讯贝1</option>
+  			<option>通讯贝2</option>
+  			<option>通讯贝3</option>
+  			<option>通讯贝4</option>
+  			<option>通讯贝5</option>
+  			<option>通讯贝6</option>
+  			<option>通讯贝7</option>
+  			<option>通讯贝8</option>
+		</select>
+		<input type="text" id="autosave" class="inputbox" style="display:inline;left: 90px;top: 640px;width:300;" placeholder="...">
+		<input type="submit" onclick="exportsave()" class="inputbox" value="生成并复制存档" style="display:inline;left: 400px;top: 640px">
 		
-		<input type="text" id="save" class="inputbox" style="display:inline;left: 550px;top: 640px;width:300;" placeholder="存档字符串">
-		<input type="submit" onclick="importsave()" class="inputbox" value="导入存档" style="display:inline;left: 850px;top: 640px">
+		<input type="text" id="save" class="inputbox" style="display:inline;left: 600px;top: 640px;width:300;" placeholder="存档字符串">
+		<input type="submit" onclick="importsave()" class="inputbox" value="导入存档" style="display:inline;left: 900px;top: 640px">
 	</div>
 	
 	<script>
@@ -93,13 +106,37 @@
 		}
 		
 		function exportsave() {
-			var str= "LaNoscea_highland,";
+			var channel = document.getElementById("channel").selectedIndex;
+			var str = "";
+			if(channel == 1) {
+				str += "/p "
+			} else if (channel == 2) {
+				str += "/fc "
+			} else if (channel == 3) {
+				str += "/l1 "
+			} else if (channel == 4) {
+				str += "/l2 "
+			} else if (channel == 5) {
+				str += "/l3 "
+			} else if (channel == 6) {
+				str += "/l4 "
+			} else if (channel == 7) {
+				str += "/l5 "
+			} else if (channel == 8) {
+				str += "/l6 "
+			} else if (channel == 9) {
+				str += "/l7 "
+			} else if (channel == 10) {
+				str += "/l8 "
+			} 
+			str += "LaNoscea_highland,";
 			for(var i=0; i<pnts.length; i++) {
 				if(document.getElementById(i).checked) {
 					str += i + ",";
 				}
 			}
 			str = str.substring(0, str.length - 1);
+			str += "(链接：https://xin-rao.github.io/hunt/highland.html)"
 			document.getElementById("autosave").value = str;
 			var temp = document.getElementById("autosave");
 			temp.select();
