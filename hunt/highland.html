@@ -2,71 +2,77 @@
 <head>
 	<title>南迪-拉诺西亚高地</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<style>
-		.icon {
-			position: absolute;
-			z-index: 2;
-			width:16;
-			height:16;
-		}
-		.inputbox {
-			position: absolute;
-			z-index: 2;
-		}
-	</style>
+	<link rel="stylesheet" href="../css/hunt.css" type="text/css" />
+	<link rel="stylesheet" href="../css/button.css" type="text/css" />
 </head>
 
 <body>
+	<!--check box-->
 	<div>
-		<input id="0" type="checkbox" value="" class="icon" style="left: 130px;top: 245px"/> <!--10.5,21.3 id=0 -->
-		<input id="1" type="checkbox" value="" class="icon" style="left: 190px;top: 255px"/> <!--12.1,21.8 id=1-->
-		<input id="2" type="checkbox" value="" class="icon" style="left: 170px;top: 295px"/> <!--11.5,22.6 id=2-->
-		<input id="3" type="checkbox" value="" class="icon" style="left: 220px;top: 330px"/> <!--12.7,23.6 id=3-->
-		<input id="4" type="checkbox" value="" class="icon" style="left: 220px;top: 410px"/> <!--12.6,25.5 id=4-->
-		<input id="5" type="checkbox" value="" class="icon" style="left: 250px;top: 420px"/> <!--13.6,25.9 id=5-->
+		<input id="0" type="checkbox" class="chkbox" style="left: 230px;top: 245px"/> <!--10.5,21.3 id=0 -->
+		<input id="1" type="checkbox" class="chkbox" style="left: 290px;top: 255px"/> <!--12.1,21.8 id=1-->
+		<input id="2" type="checkbox" class="chkbox" style="left: 270px;top: 295px"/> <!--11.5,22.6 id=2-->
+		<input id="3" type="checkbox" class="chkbox" style="left: 320px;top: 330px"/> <!--12.7,23.6 id=3-->
+		<input id="4" type="checkbox" class="chkbox" style="left: 320px;top: 410px"/> <!--12.6,25.5 id=4-->
+		<input id="5" type="checkbox" class="chkbox" style="left: 350px;top: 420px"/> <!--13.6,25.9 id=5-->
 		
-		<input id="6" type="checkbox" value="" class="icon" style="left: 810px;top: 180px"/> <!--27.6,19.8 id=6-->
-		<input id="7" type="checkbox" value="" class="icon" style="left: 830px;top: 250px"/> <!--28.1,21.4 id=7-->
-		<input id="8" type="checkbox" value="" class="icon" style="left: 870px;top: 240px"/> <!--29.1,21.2 id=8-->
-		<input id="9" type="checkbox" value="" class="icon" style="left: 850px;top: 280px"/> <!--28.6,22.1 id=9-->
-		<input id="10" type="checkbox" value="" class="icon" style="left: 800px;top: 335px"/> <!--27.3,23.8 id=10-->
-		<input id="11" type="checkbox" value="" class="icon" style="left: 880px;top: 350px"/> <!--29.4,24.1 id=11-->
-		<input id="12" type="checkbox" value="" class="icon" style="left: 825px;top: 415px"/> <!--28,25.7 id=12-->
-		<input id="13" type="checkbox" value="" class="icon" style="left: 920px;top: 400px"/> <!--30.2,25.2 id=13-->
+		<input id="6" type="checkbox" class="chkbox" style="left: 910px;top: 180px"/> <!--27.6,19.8 id=6-->
+		<input id="7" type="checkbox" class="chkbox" style="left: 930px;top: 250px"/> <!--28.1,21.4 id=7-->
+		<input id="8" type="checkbox" class="chkbox" style="left: 970px;top: 240px"/> <!--29.1,21.2 id=8-->
+		<input id="9" type="checkbox" class="chkbox" style="left: 950px;top: 280px"/> <!--28.6,22.1 id=9-->
+		<input id="10" type="checkbox" class="chkbox" style="left: 900px;top: 335px"/> <!--27.3,23.8 id=10-->
+		<input id="11" type="checkbox" class="chkbox" style="left: 980px;top: 350px"/> <!--29.4,24.1 id=11-->
+		<input id="12" type="checkbox" class="chkbox" style="left: 925px;top: 415px"/> <!--28,25.7 id=12-->
+		<input id="13" type="checkbox" class="chkbox" style="left: 1020px;top: 400px"/> <!--30.2,25.2 id=13-->
 		
-		<input id="14" type="checkbox" value="" class="icon" style="left: 1030px;top: 350px"/> <!--33.1,24 id=14-->
-		<input id="15" type="checkbox" value="" class="icon" style="left: 1110px;top: 335px"/> <!--35.1,23.6 id=15-->
-		<input id="16" type="checkbox" value="" class="icon" style="left: 1030px;top: 420px"/> <!--33.1,25.8 id=16-->
+		<input id="14" type="checkbox" class="chkbox" style="left: 1130px;top: 350px"/> <!--33.1,24 id=14-->
+		<input id="15" type="checkbox" class="chkbox" style="left: 1210px;top: 335px"/> <!--35.1,23.6 id=15-->
+		<input id="16" type="checkbox" class="chkbox" style="left: 1130px;top: 420px"/> <!--33.1,25.8 id=16-->
 		<!--7,15-36,30-->
-		<img src="../img/highland.png" style="position: absolute;top: 0px;left: 0px;z-index: 1;width:1197;height:601"/>
-		<a href="hunttool.html"><input type="submit" value="返回列表" style="position: absolute;z-index: 2;left: 0px;top: 0px""></a>
-		
-		<div style="position: absolute;z-index: 2;left: 0px;top: 610px">拉诺西亚高地:</div>
-		<input type="text" id="x" class="inputbox" style="display:inline;left: 120px;top: 610px;width:50;" placeholder="x">
-		<input type="text" id="y" class="inputbox" style="display:inline;left: 170px;top: 610px;width:50;" placeholder="y">
-		<input type="submit" onclick="importCdt()" class="inputbox" value="导入" style="display:inline;left: 220px;top: 610px">
-		
-		<select id="channel" class="inputbox" style="display:inline;left: 0px;top: 640px;width:80;">
-  			<option>无</option>
-  			<option>小队</option>
-  			<option>部队</option>
-  			<option>通讯贝1</option>
-  			<option>通讯贝2</option>
-  			<option>通讯贝3</option>
-  			<option>通讯贝4</option>
-  			<option>通讯贝5</option>
-  			<option>通讯贝6</option>
-  			<option>通讯贝7</option>
-  			<option>通讯贝8</option>
-		</select>
-		<input type="text" id="autosave" class="inputbox" style="display:inline;left: 90px;top: 640px;width:300;" placeholder="...">
-		<input type="checkbox" id="link" class="inputbox" style="display:inline;left: 90px;top: 670px;">
-		<label class="inputbox" style="display:inline;left: 110px;top: 670px;width:300;">带上此网页链接</label>
-		<input type="submit" onclick="exportsave()" class="inputbox" value="生成并复制存档" style="display:inline;left: 400px;top: 640px">
-		
-		<input type="text" id="save" class="inputbox" style="display:inline;left: 600px;top: 640px;width:300;" placeholder="存档字符串">
-		<input type="submit" onclick="importsave()" class="inputbox" value="导入存档" style="display:inline;left: 900px;top: 640px">
 	</div>
+	<!--map-->
+	<img src="../img/highland.png" style="position: absolute;top: 0px;left: 100px;z-index: 1;width:1197;height:601"/>
+	<!--side button-->
+	<input type="submit" value="导入存档" class="button-raised button-inverse submitBnt" onclick="showIptCdt()" style="z-index: 2;left: 0px;top: 0px">
+	<input type="submit" value="导出存档" class="button-raised button-inverse submitBnt" onclick="showOptCdt()" style="z-index: 2;left: 0px;top: 40px">
+	<input type="submit" value="数字坐标导入" class="button-raised button-inverse submitBnt" onclick="showNumCdt()" style="z-index: 2;left: 0px;top: 80px">
+	<input type="submit" value="完整坐标导入" class="button-raised button-inverse submitBnt" onclick="showFullCdt()" style="z-index: 2;left: 0px;top: 120px">
+	<input type="submit" value="其他设置" class="button-raised button-inverse submitBnt" onclick="setting()" style="z-index: 2;left: 0px;top: 160px">
+	<a href="hunttool.html"><input type="submit" value="返回列表" class="button-raised button-inverse submitBnt" style="z-index: 2;left: 0px;top: 200px"></a>
+
+		
+
+		
+	<input type="text" id="save" class="inputbox" style="display:none;left: 120px;top: 10px;width:300;" placeholder="存档字符串">
+	<input type="submit" id="saveBtn"onclick="importsave()" class="secondaryBnt" value="导入存档" style="display:none;left: 420px;top: 10px">
+
+
+	<select id="channel" class="inputbox" style="display:none;left: 120px;top: 40px;width:80;">
+  		<option>无</option>
+  		<option>小队</option>
+  		<option>部队</option>
+  		<option>通讯贝1</option>
+  		<option>通讯贝2</option>
+  		<option>通讯贝3</option>
+  		<option>通讯贝4</option>
+  		<option>通讯贝5</option>
+  		<option>通讯贝6</option>
+  		<option>通讯贝7</option>
+  		<option>通讯贝8</option>
+	</select>
+	<input type="checkbox" id="link" class="inputbox" style="display:none;left: 210px;top: 40px;">
+	<label id="linkLabel" class="inputbox" style="display:none;left: 230px;top: 40px;width:300;">带上此网页链接</label>
+	<input type="text" id="autosave" class="inputbox" style="display:none;left: 120px;top: 60px;width:300;" placeholder="...">
+	<input type="submit" id="generateSave" onclick="exportsave()" class="secondaryBnt" value="生成并复制存档" style="display:none;left: 430px;top: 60px">
+
+	<input type="text" id="x" class="inputbox" style="display:none;left: 120px;top: 90px;width:50;" placeholder="x">
+	<input type="text" id="y" class="inputbox" style="display:none;left: 170px;top: 90px;width:50;" placeholder="y">
+	<input type="submit" id="numImportBtn" onclick="importCdt()" class="secondaryBnt" value="导入" style="display:none;left: 220px;top: 90px">
+	
+	<input type="text" id="coordinate" class="inputbox" style="display:none;left: 120px;top: 130px;width:200;" placeholder="例：拉诺西亚高地 ( 10.3  , 12.6 )">
+	<input type="submit" id="fullImportBtn" onclick="importFullCdt()" class="secondaryBnt" value="导入" style="display:none;left: 320px;top: 130px">
+
+	<input type="submit" id="switchDisable" onclick="switchDisable()" class="secondaryBnt" value="可点击坐标on" style="display:none;left: 120px;top: 170px">
 	
 	<script>
 		var pnts = [[10.5,21.3],
@@ -85,7 +91,10 @@
 					[30.2,25.2],
 					[33.1,24],
 					[35.1,23.6],
-					[33.1,25.8]]
+					[33.1,25.8]];
+		var mapName = "LaNoscea_highland";
+		var mapName_cn = "拉诺西亚高地";
+		var webLink = "(链接:https://xin-rao.github.io/hunt/highland.html)";
 	
 		function importCdt() {
 			var minlength = 9999;
@@ -101,10 +110,45 @@
 					}
 				}
 				document.getElementById(idx).checked=true;
+				document.getElementById("x").value=null;
+				document.getElementById("y").value=null;
+				showNumCdt();
 			} catch(err) {
 				alert("输入数据有问题哟，请输入正数或者小数");
 			}
 			
+		}
+		
+		function importFullCdt() {
+			var str = document.getElementById("coordinate").value;
+			var arr = str.split(/[,，（）()]/);
+			console.log(arr);
+			if(arr.length < 3) {
+				alert("输入数据有问题哟，请再次检查");
+			} else {
+				var minlength = 9999;
+				var idx = -1;
+				try {
+					var xc = arr[1].trim();
+					var yc = arr[2].trim();
+					if(xc == null || yc == null || xc == "" || yc == "") {
+						throw "number error";
+					}
+					for(var i=0; i<pnts.length; i++) {
+						var dist = (xc-pnts[i][0]) * (xc-pnts[i][0]) + (yc-pnts[i][1])*(xc-pnts[i][0])
+						if(dist < minlength) {
+							idx = i;
+							minlength = dist;
+						}
+					}
+					document.getElementById(idx).checked=true;
+					document.getElementById("coordinate").value=null;
+					showFullCdt();
+				} catch (err) {
+					alert("输入数据有问题哟，请再次检查");
+				}
+				
+			}
 		}
 		
 		function exportsave() {
@@ -131,7 +175,7 @@
 			} else if (channel == 10) {
 				str += "/l8 "
 			} 
-			str += "LaNoscea_highland,";
+			str += mapName + ",";
 			for(var i=0; i<pnts.length; i++) {
 				if(document.getElementById(i).checked) {
 					str += i + ",";
@@ -139,30 +183,107 @@
 			}
 			str = str.substring(0, str.length - 1);
 			if(document.getElementById("link").checked) {
-				str += " (链接:https://xin-rao.github.io/hunt/highland.html)"
+				str += " " + webLink;
 			}
 			document.getElementById("autosave").value = str;
 			var temp = document.getElementById("autosave");
 			temp.select();
 			document.execCommand("copy");
 			alert("存档已复制:\n" + str);
+			showOptCdt();
 		}
 		
 		function importsave() {
 			var arr = document.getElementById("save").value.split(",");
-			if(arr[0] != "LaNoscea_highland") {
-				alert("存档位置有问题哟，此存档不是【拉诺西亚高地】的存档");
+			if(arr[0] != mapName) {
+				alert("存档位置有问题哟，此存档不是【" + mapName_cn + "】的存档");
 			} else {
 				try {
 					for(var i=1; i<arr.length; i++) {
 						document.getElementById(arr[i]).checked = true;
 					}
 					alert("存档导入完毕！");
+					showIptCdt();
 				} catch (err) {
 					alert("存档数据不对哟，请检查后再次输入");
 				}
 			}
 		}
+		
+		function showNumCdt() {
+			if(document.getElementById("x").style.display=="inline") {
+				document.getElementById("x").style.display="none";
+				document.getElementById("y").style.display="none";
+				document.getElementById("numImportBtn").style.display="none";
+			} else if (document.getElementById("x").style.display=="none") {
+				document.getElementById("x").style.display="inline";
+				document.getElementById("y").style.display="inline";
+				document.getElementById("numImportBtn").style.display="inline";
+			}
+
+		}
+		
+		function showFullCdt() {
+			if(document.getElementById("coordinate").style.display=="inline") {
+				document.getElementById("coordinate").style.display="none";
+				document.getElementById("fullImportBtn").style.display="none";
+			} else if (document.getElementById("coordinate").style.display=="none") {
+				document.getElementById("coordinate").style.display="inline";
+				document.getElementById("fullImportBtn").style.display="inline";
+			}
+
+		}
+		
+		function showIptCdt() {
+			if(document.getElementById("save").style.display=="inline") {
+				document.getElementById("save").style.display="none";
+				document.getElementById("saveBtn").style.display="none";
+			} else if (document.getElementById("save").style.display=="none") {
+				document.getElementById("save").style.display="inline";
+				document.getElementById("saveBtn").style.display="inline";
+			}
+
+		}
+		
+		function showOptCdt() {
+			if(document.getElementById("channel").style.display=="inline") {
+				document.getElementById("channel").style.display="none";
+				document.getElementById("link").style.display="none";
+				document.getElementById("linkLabel").style.display="none";
+				document.getElementById("autosave").style.display="none";
+				document.getElementById("generateSave").style.display="none";
+			} else if (document.getElementById("channel").style.display=="none") {
+				document.getElementById("channel").style.display="inline";
+				document.getElementById("link").style.display="inline";
+				document.getElementById("linkLabel").style.display="inline";
+				document.getElementById("autosave").style.display="inline";
+				document.getElementById("generateSave").style.display="inline";
+			}
+
+		}
+		
+		function switchDisable() {
+			if(document.getElementById("switchDisable").value == "可点击坐标on") {
+				for(var i = 0; i < pnts.length; i++) {
+					document.getElementById(i).disabled="disabled";
+				}
+				document.getElementById("switchDisable").value="可点击坐标off";
+			} else if (document.getElementById("switchDisable").value == "可点击坐标off") {
+				for(var i = 0; i < pnts.length; i++) {
+					document.getElementById(i).disabled="";
+				}
+				document.getElementById("switchDisable").value="可点击坐标on";
+			}
+		}
+		
+		function setting() {
+			if(document.getElementById("switchDisable").style.display == "inline") {
+				document.getElementById("switchDisable").style.display = "none";
+			} else if (document.getElementById("switchDisable").style.display == "none") {
+				document.getElementById("switchDisable").style.display = "inline";
+			}
+		}
+		
 	</script>
 </body>
 
