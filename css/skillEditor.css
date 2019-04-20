@@ -1,0 +1,97 @@
+html {
+	font-family: Ubuntu, simHei, sans-serif;
+}
+
+.tray {
+	width: 420px;
+	height:auto;
+	padding: 13px;
+	background: url(../img/bkgrd.png) repeat 8px 8px;
+	background-color: #373837;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: 0 0 20px 5px black;
+	float:right;
+	display:inline-block;
+}
+
+.bar {
+	width: 134px;
+	height: 6px;
+	background-color: white;
+	border-radius: 3px;
+	opacity:0.2;
+}
+
+.skillIcon {
+	position:relative;
+	top:-5px;
+	box-shadow: 0 0 10px black;
+	width:50px;
+	height:auto;
+	border-radius: 7px;
+}
+
+.skillName {
+	padding:20px 0px 30px 8px;
+	font-size: 14px;
+	color:white;
+}
+
+.skillType {
+	padding-left:10px;
+	/*padding-right:130px;*/
+	font-size: 10px;
+	color:#c3bca5;
+}
+
+.range {
+	padding-left:25px;
+	font-size: 12px;
+	color:gray;
+}
+
+.data {
+	font-size: 14px;
+	display:inline;
+	color:white;
+}
+
+.block {
+	display:inline-block;
+	width:134px;
+}
+
+.blockItem {
+	padding:2px;
+	display:block;
+	text-align:right;
+}
+
+.title {
+	font-size: 12px;
+	color:#c3bca5;
+}
+
+.number {
+	font-size: 12px;
+	color:white;
+}
+
+.greenText {
+	font-size: 12px;
+	color:#00cc22;
+}
+
+.learnJob {
+	
+	width:20px;
+	height:auto;
+	vertical-align:middle
+}
+
+.menu {
+	float:left;
+	display:inline-block;
+	width:50%
+}

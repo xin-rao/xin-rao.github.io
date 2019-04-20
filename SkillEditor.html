@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>技能编辑器</title>
+<link rel="stylesheet" href="css/skillEditor.css" />
+</head>
+
+<body>
+	<div id="app">
+	
+		<div style="padding:5px">
+			<button type="button" v-on:click="select_modify">修改内容</button>
+			<button type="button" v-on:click="select_icons">选择图标</button>
+			<button type="button" v-on:click="select_types">选择类型</button>
+		</div>
+	
+		<div class="menu" v-show="modify">
+			<span>技能名称：</span>
+			<input type="text" v-model="name"/>
+			<br>
+			<span>技能类型：</span>
+			<input type="text" v-model="type"/>
+			<br>
+			<span>技能距离：</span>
+			<input type="text" v-model="distance"/>
+			<br>
+			<span>技能范围：</span>
+			<input type="text" v-model="range"/>
+			<br>
+			<span>咏唱时间：</span>
+			<input type="text" v-model="casttime"/>
+			<br>
+			<span>复唱时间：</span>
+			<input type="text" v-model="cooldown"/>
+			<br>
+			<span>消耗：</span>
+			<input type="text" v-model="cost"/>
+			<br>
+			<span>技能描述：</span>
+			<textarea style="width:250px;vertical-align:middle" v-model="description"></textarea>
+			<br>
+			<br>
+			<span>触发条件：</span>
+			<input type="text" v-model="enableCondition"/>
+			<br>
+			<span>连击条件：</span>
+			<input type="text" v-model="comboCondition"/>
+			<br>
+			<span>连击中威力：</span>
+			<input type="text" v-model="comboPower"/>
+			<br>
+			<span>附加效果：</span>
+			<textarea style="width:250px;vertical-align:middle"v-model="addonEffect"></textarea>
+			<br>
+			<span>习得职业：</span>
+			<img v-for="j in jobs" src="img/jobs/{{j}}.png" class="learnJob" v-on:click="selectJob($index)">
+			<br>
+			<span>习得等级：</span>
+			<input type="text" v-model="learnLevel"/>
+			<br>
+			<span>适应职业：</span>
+			<input type="text" v-model="job"/>
+		</div>
+		
+		<div class="menu" v-show="icons">
+			<select v-model="skillJobType" v-on:click="switchJobType()"> 
+				<option value="0">骑士</option> 
+				<option value="1">战士</option>
+				<option value="2">暗黑骑士</option>
+				<option value="3">白魔法师</option>
+				<option value="4">学者</option>
+				<option value="5">占星术士</option>
+				<option value="6">龙骑士</option>
+				<option value="7">武僧</option>
+				<option value="8">武士</option>
+				<option value="9">忍者</option>
+				<option value="10">吟游诗人</option>
+				<option value="11">机工士</option>
+				<option value="12">黑魔法师</option>
+				<option value="13">召唤师</option>
+				<option value="14">赤魔法师</option>
+				<option value="15">防护职业通用</option>
+				<option value="16">治疗职业通用</option>
+				<option value="17">近战职业通用</option>
+				<option value="18">远程职业通用</option>
+				<option value="19">法系职业通用</option>
+				<option value="20" disabled="disabled">青魔法师</option>
+			</select>
+			<br> 
+			<img v-for="i in skillnumber()" style="width:35px;height:auto;padding:2px" src="img/skill/{{skillJob}}/{{i}}.png" v-on:click="select_skill($index)">
+		</div>
+		
+		<div v-show="types">
+			<span>尚未施工完毕</span>
+		</div>
+		
+		<div style = "padding-right:30px">
+		<div class="tray">
+			<span class="skillName"><img src="img/{{icon}}" align="left"
+				hspace="0" vspace="0" class="skillIcon">{{name}}</span> <br> <span
+				class="skillType">{{type}}</span>
+			<div style="float: right;">
+				<span class="range">距离</span> <span class="data">{{distance}}米</span>
+				<span class="range">范围</span> <span class="data">{{range}}米</span>
+			</div>
+			<br>
+			<br> <span class="block"> <span class="blockItem title">咏唱时间</span>
+				<span class="blockItem data">{{casttime}}秒</span>
+				<div class="bar"></div>
+			</span> <span class="block"> <span class="blockItem title">复唱时间</span>
+				<span class="blockItem data">{{cooldown}}秒</span>
+				<div class="bar"></div>
+			</span> <span class="block"> <span class="blockItem title">消耗魔力</span>
+				<span class="blockItem data">{{cost}}</span>
+				<div class="bar"></div>
+			</span>
+			<hr style="opacity: 0.3"></hr>
+			<span class="number">{{description}}</span>
+			<div style="float: right;">
+				<span class="greenText">威力：</span>
+				<span class="number">{{power}}</span>
+			</div>
+			<div>
+				<span  class="greenText">触发条件：</span>
+				<span class="number">{{enableCondition}}</span>
+			</div>
+			<div>
+				<span  class="greenText">连击条件：</span>
+				<span class="number">{{comboCondition}}</span>
+			</div>
+			<div>
+				<span  class="greenText">连击中威力：</span>
+				<span class="number">{{comboPower}}</span>
+			</div>
+			<div>
+				<span  class="greenText">附加效果：</span>
+				<span class="number">{{addonEffect}}</span>
+			</div>
+			<div>
+				<span class="title">习得职业：</span>
+				<span><img src="img/{{learnJob}}" class="learnJob"></span>
+				<span class = "greenText">{{learnLevel}}级</span>
+			</div>
+			<div>
+				<span  class="title">适应职业：</span>
+				<span class="number">{{job}}</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el : '#app',
+		data : {
+			icon : "skill/healerRole/8.png",
+			name : "白魔跳劈",
+			type : "战技",
+			distance : 25,
+			range : 25,
+			casttime : 1.83,
+			cooldown : 2.45,
+			cost : 400,
+			description : "白魔高高跃起，对头铁的dps迎头一击，此技能必然直爆",
+			power : 420,
+			enableCondition : "有dps头铁",
+			comboCondition : "营救",
+			comboPower : 700,
+			addonEffect : "dps体力降到1，并且禁疗10秒",
+			learnJob : "jobs/wtm.png",
+			skillJob: "pld",
+			learnLevel : 40,
+			job : "白魔法师",
+			jobs:["pld","war","dk","wtm","sch","ast","dra","mon","sam","nin","brd","mac","bkm","sum","rdm","tankRole","healerRole","meleeRole","rangedRole","magicRole","BlueMage"],
+			modify:true,
+			icons:false,
+			types:false,
+			skillJobType:0,
+			sq:26,
+			skillQuantity:[27,26,25,25,29,38,24,31,27,33,26,31,26,32,28,10,10,10,10,10,0]
+		},
+		methods : {
+			selectJob : function($index){
+                this.learnJob = "jobs/" + this.jobs[$index] + ".png";
+            },
+			select_modify : function() {
+				this.modify=true;
+				this.icons=false;
+				this.types=false;
+			},
+			select_icons : function() {
+				this.modify=false;
+				this.icons=true;
+				this.types=false;
+			},
+			select_types : function() {
+				this.modify=false;
+				this.icons=false;
+				this.types=true;
+			}, switchJobType: function() {
+				this.skillJob = this.jobs[this.skillJobType];
+			}, skillnumber: function() {
+				console.log(this.skillQuantity[this.skillJobType]);
+				return this.skillQuantity[this.skillJobType];
+			}, select_skill : function($index) {
+				this.icon = "skill/" + this.jobs[this.skillJobType] + "/" + $index + ".png";
+			}
+		}
+	})
+</script>
+
+</html>
