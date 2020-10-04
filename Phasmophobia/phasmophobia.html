@@ -1,0 +1,226 @@
+<html>
+<head>
+<title>Phasmophobia推测小工具</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="../css/panel2.css" type="text/css" />
+</head>
+<body>
+	<div class="basepanel">
+		<h2 style="color: #ffffff;">Phasmophobia推测小工具</h2>
+		<b><font size="2" style="color: #ffffff;">ver 1.0.0 |
+				game_ver: 0.174</font></b>
+
+		<div class="secondarypanel">
+			<b style="">证据列表</b>
+			<hr></hr>
+			<small class="lead">指纹</small> <select id="fingerPrint"
+				class="inputbox" style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> <small class="lead">通灵盒</small> <select id="spiritBox"
+				class="inputbox" style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> <small class="lead">鬼魂笔记</small> <select id="ghostWriting"
+				class="inputbox" style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> <small class="lead">寒冷刺骨</small> <select id="freezing"
+				class="inputbox" style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> <small class="lead">EMF5级</small> <select id="EMF5" class="inputbox"
+				style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> <small class="lead">灵球</small> <select id="orbs" class="inputbox"
+				style="width: 80;">
+				<option>未知</option>
+				<option>有</option>
+				<option>无</option>
+			</select> 
+			<input type="submit" onclick="calResult()" value="进行推测"
+				style="margin-top: 10px; background-color: #c5c5c5">
+				<input type="submit" onclick="reset()" value="重置"
+				style="margin-top: 10px; background-color: #c5c5c5">
+		</div>
+		<div class="secondarypanel">
+			<b style="">推测列表</b>
+			<hr></hr>
+			<div class="defaultpanel" id = "魂魄">
+				<b>魂魄</b>
+				<p>魂魄是最常见的鬼魂，但它不容小觎，它通常会在死者死因不明的区域出现。</p>
+				<p>特征：无</p>
+				<p>弱点：在魂魄附近点燃圣木会在一段时间内阻止它的攻击</p>
+				<span>证据：</span><span>通灵盒，</span><span>指纹，</span><span>鬼魂笔迹</span>
+			</div>
+			<div class="defaultpanel" id = "死灵">
+				<b>死灵</b>
+				<p>死灵是最危险的鬼魂之一。它也是唯一具有飞行能力的鬼魂，有时他还能穿墙。</p>
+				<p>特征：死灵几乎不接触地面，所以他没有足迹</p>
+				<p>弱点：触到盐会在十秒钟内中毒</p>
+				<span>证据：</span><span>指纹，</span><span>寒冷刺骨，</span><span>通灵盒</span>
+			</div>
+			<div class="defaultpanel" id = "幻影">
+				<b>幻影</b>
+				<p>幻影是种能附身的鬼魂，通常可用于通灵板召唤。它也会让周围的人感到恐惧。</p>
+				<p>特征：看见幻影会大幅度降低你的理智。</p>
+				<p>弱点：拍照会使他暂时消失</p>
+				<span>证据：</span><span>EMF 5级，</span><span>寒冷刺骨，</span><span>灵球</span>
+			</div>
+			<div class="defaultpanel" id = "骚灵">
+				<b>骚灵</b>
+				<p>鬼魂中最著名的一种鬼，也称为吵闹鬼，他可以通过操纵周围的物体来散播恐惧。</p>
+				<p>特征：骚灵可以一次性投掷大量物体。</p>
+				<p>弱点：骚灵在空无一物的房间内毫无用处。</p>
+				<span>证据：</span><span>通灵盒，</span><span>指纹，</span><span>灵球</span>
+			</div>
+			<div class="defaultpanel" id = "女妖">
+				<b>女妖</b>
+				<p>女妖是天生的猎人，它会攻击任何东西。它只会跟踪一个目标直至死亡。</p>
+				<p>特征：女妖一次只会攻击一个人。</p>
+				<p>弱点：女妖害怕十字架。</p>
+				<span>证据：</span><span>EMF 5级，</span><span>指纹，</span><span>寒冷刺骨</span>
+			</div>
+			<div class="defaultpanel" id = "巨灵">
+				<b>巨灵</b>
+				<p>巨灵是一种地域意识很强的鬼魂，受到威胁时会发动攻击。它能够以相当快的速度移动</p>
+				<p>特征：如果目标在远处，巨灵会以更快的速度移动。</p>
+				<p>弱点：关闭电源可防止巨灵使用其技能。</p>
+				<span>证据：</span><span>通灵盒，</span><span>灵球，</span><span>EMF 5级</span>
+			</div>
+			<div class="defaultpanel" id = "梦魇">
+				<b>梦魇</b>
+				<p>梦魇是噩梦之源，他是黑暗中最强大的梦魇。</p>
+				<p>特征：梦魇在黑暗中更有可能攻击你。</p>
+				<p>弱点：开灯会降低他的攻击欲望。</p>
+				<span>证据：</span><span>通灵盒，</span><span>灵球，</span><span>寒冷刺骨</span>
+			</div>
+			<div class="defaultpanel" id = "亡魂">
+				<b>亡魂</b>
+				<p>亡魂移动缓慢，但很狂暴，他会肆意攻击。传言道他狩猎时会高速移动</p>
+				<p>特征：他狩猎时会高速移动。</p>
+				<p>弱点：他找不到猎物时移动缓慢。</p>
+				<span>证据：</span><span>EMF 5级，</span><span>指纹，</span><span>鬼魂笔记</span>
+			</div>
+			<div class="defaultpanel" id = "暗影">
+				<b>暗影</b>
+				<p>暗影是个害羞鬼。证据表明，只要人够多他就不敢活动。</p>
+				<p>特征：害羞意味着鬼魂更难被发现。</p>
+				<p>弱点：如果附近有多个人，它不会进入狩猎模式。</p>
+				<span>证据：</span><span>EMF 5级，</span><span>灵球，</span><span>鬼魂笔记</span>
+			</div>
+			<div class="defaultpanel" id = "恶魔">
+				<b>恶魔</b>
+				<p>恶魔会是你最不想遇到的鬼之一。众所周知，它会无缘无故地攻击你。</p>
+				<p>特征：更具攻击性。</p>
+				<p>弱点：使用通灵板向恶魔成功提问不会降低你的理智。</p>
+				<span>证据：</span><span>通灵盒，</span><span>寒冷刺骨，</span><span>鬼魂笔记</span>
+			</div>
+			<div class="defaultpanel" id = "幽灵">
+				<b>幽灵</b>
+				<p>幽灵是回到现实世界的复仇之魂</p>
+				<p>特征：它会让你丧失更多的理智。</p>
+				<p>弱点：在幽灵的房间里点燃圣木会使它避开这个房间很长时间。</p>
+				<span>证据：</span><span>灵球，</span><span>鬼魂笔记，</span><span>寒冷刺骨</span>
+			</div>
+			<div class="defaultpanel" id = "赤鬼">
+				<b>赤鬼</b>
+				<p>赤鬼是恶魔的亲戚，拥有超强的力量。传言道他们会在猎物周围更加活跃。</p>
+				<p>特征：当有人在附近时，他会更加活跃。赤鬼也可以高速移动物品。</p>
+				<p>弱点：玩家更活跃会引起赤鬼的兴趣。</p>
+				<span>证据：</span><span>EMF 5级，</span><span>鬼魂笔记，</span><span>通灵盒</span>
+			</div>
+		</div>
+	</div>
+	<script>
+		var input = [0,0,0,0,0,0];
+		var names = ["魂魄","死灵","幻影","骚灵","女妖","巨灵","梦魇","亡魂","暗影","恶魔","幽灵","赤鬼"];
+		var flags = [false,false,false,false,false,false,false,false,false,false,false,false];
+		var score = [0,0,0,0,0,0,0,0,0,0,0,0];
+		var matrix = [[1,1,1,0,0,0],
+			          [1,1,0,1,0,0],
+			          [0,0,0,1,1,1],
+			          [1,1,0,0,0,1],
+			          [1,0,0,1,1,0],
+			          [0,1,0,0,1,1],
+			          [0,1,0,1,0,1],
+			          [1,0,1,0,1,0],
+			          [0,0,1,0,1,1],
+			          [0,1,1,1,0,0],
+			          [0,0,1,1,0,1],
+			          [0,1,1,0,1,0]];
+		
+		function reset() {
+			document.getElementById("fingerPrint").selectedIndex = 0;
+			document.getElementById("spiritBox").selectedIndex = 0;
+			document.getElementById("ghostWriting").selectedIndex = 0;
+			document.getElementById("freezing").selectedIndex = 0;
+			document.getElementById("EMF5").selectedIndex = 0;
+			document.getElementById("orbs").selectedIndex = 0;
+			input = [0,0,0,0,0,0];
+			score = [0,0,0,0,0,0,0,0,0,0,0,0];
+			flags = [false,false,false,false,false,false,false,false,false,false,false,false];
+			for(i = 0; i < names.length; i++) {
+				document.getElementById(names[i]).className = "defaultpanel";
+				document.getElementById(names[i]).style.display = "block";
+			}
+		}
+		
+		function calResult() {
+			score = [0,0,0,0,0,0,0,0,0,0,0,0];
+			input[0] = document.getElementById("fingerPrint").selectedIndex;
+			input[1] = document.getElementById("spiritBox").selectedIndex;
+			input[2] = document.getElementById("ghostWriting").selectedIndex;
+			input[3] = document.getElementById("freezing").selectedIndex;
+			input[4] = document.getElementById("EMF5").selectedIndex;
+			input[5] = document.getElementById("orbs").selectedIndex;
+			
+			for(i = 0; i < names.length; i++) {
+				for(j = 0; j < input.length; j++) {
+					if(input[j] == 0) {
+						continue;
+					}
+					if(input[j] == 2 && matrix[i][j] == 1) {
+						score[i] = 0;
+						flags[i] = false;
+						break;
+					} else if (input[j] == 1 && matrix[i][j] == 0) {
+						score[i] = 0;
+						flags[i] = false;
+						break;
+					} else if (input[j] == 1 && matrix[i][j] == 1) {
+						score[i]++;
+						flags[i] = true;
+					} else {
+						flags[i] = true;
+					}
+				}	
+			}
+			
+			for(i = 0; i < names.length; i++) {
+				if (!flags[i]) {
+					document.getElementById(names[i]).style.display = "none";
+				} else {
+					document.getElementById(names[i]).style.display = "block";
+				}
+				
+				if (score[i] == 0) {
+					document.getElementById(names[i]).className = "defaultpanel";
+				} else if (score[i] == 1) {
+					document.getElementById(names[i]).className = "redpanel";
+				} else if (score[i] == 2) {
+					document.getElementById(names[i]).className = "yellowpanel";
+				} else if (score[i] > 2) {
+					document.getElementById(names[i]).className = "greenpanel";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

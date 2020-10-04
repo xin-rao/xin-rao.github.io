@@ -1,0 +1,67 @@
+.basepanel {
+	width: 850px;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #373837;
+	border: 1px solid #dea929;
+	border-radius: 4px;
+	box-shadow: 0 0 30px black;
+}
+
+.defaultpanel {
+	width: 90%;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #6e6e6e;
+	border: 2px solid #ffffff;
+	border-radius: 4px;
+	box-shadow: 0 0 10px black;
+}
+
+.redpanel {
+	width: 90%;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #ee9393;
+	border: 2px solid #ff2e2e;
+	border-radius: 4px;
+	box-shadow: 0 0 10px black;
+}
+
+.yellowpanel {
+	width: 90%;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #eee993;
+	border: 2px solid #fdff2e;
+	border-radius: 4px;
+	box-shadow: 0 0 10px black;
+}
+
+.greenpanel {
+	width: 90%;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #99ee93;
+	border: 2px solid #5aff2e;
+	border-radius: 4px;
+	box-shadow: 0 0 10px black;
+}
+
+.secondarypanel {
+	background-color: #a9a9a9;
+	padding: 15px;
+	border-radius: 4px;
+	box-shadow: 0 0 30px black;
+	margin-top: 10px;
+}
