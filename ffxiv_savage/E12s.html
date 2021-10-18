@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>头都给你打飞的E12s训练营</title>
+<link rel="stylesheet" href="css/skillEditor.css" />
+</head>
+
+<body style="background-color: #333333">
+	<div id="app">
+	<button type="button" style="position: absolute;top: 45px;left: 10px;" v-on:click="randomAOE">出题！</button>
+	
+	<div v-on:click = "putIcon">
+		<span style="position: absolute;align:middle; font-size:25px; color:#ffffff">头都给你打飞的E12s训练营</span>
+		
+		<div v-show="wind">
+			<img src="../img/HUD/E12s_wind.png" style="position: absolute;top: 50px;left: 100px;z-index: 6;width:35%;height:auto"/>
+		</div>
+		<div v-show="water">
+			<img src="../img/HUD/E12s_water.png" style="position: absolute;top: 50px;left: 100px;z-index: 7;width:35%;height:auto"/>
+		</div>
+		<div v-show="fire">
+			<img src="../img/HUD/E12s_fire.png" style="position: absolute;top: 50px;left: 100px;z-index: 8;width:35%;height:auto"/>
+		</div>
+		<div v-show="thunder">
+			<img src="../img/HUD/E12s_thunder.png" style="position: absolute;top: 50px;left: 100px;z-index: 9;width:35%;height:auto"/>
+		</div>
+		
+		<div v-show="wind_line">
+			<img src="../img/HUD/E12s_wind_line.png" style="position: absolute;top: 50px;left: 100px;z-index: 1;width:35%;height:auto"/>
+		</div>
+		<div v-show="water_line">
+			<img src="../img/HUD/E12s_water_line.png" style="position: absolute;top: 50px;left: 100px;z-index: 2;width:35%;height:auto"/>
+		</div>
+		<div v-show="fire_line">
+			<img src="../img/HUD/E12s_fire_line.png" style="position: absolute;top: 50px;left: 100px;z-index: 3;width:35%;height:auto"/>
+		</div>
+		<div v-show="thunder_line">
+			<img src="../img/HUD/E12s_thunder_line.png" style="position: absolute;top: 50px;left: 100px;z-index: 4;width:35%;height:auto"/>
+		</div>
+		
+		<div v-show="map">
+			<img src="../img/HUD/E12s_map.png" style="position: absolute;top: 50px;left: 100px;z-index: 0;width:35%;height:auto"/>	
+		</div>
+		<div v-show="dead">
+			<img src="../img/HUD/E12s_dead.png" style="position: absolute;top: 50px;left: 99px;z-index: 20;width:35.1%;height:auto"/>	
+		</div>
+		<div id= "icon" style="position: absolute;left:tranLeft; top:tranTop;">
+			<img src="../img/jobs/pld.png" v-show="showIcon" style="width:45%;height:auto;z-index: 5;">				
+		</div>
+		</div>
+	</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el : '#app',
+		data : {
+			map : true,
+			wind : false,
+			water : false,
+			fire : false,
+			thunder : false,
+			wind_line : false,
+			water_line : false,
+			fire_line : false,
+			thunder_line : false,
+			last_index: -1,
+			showIcon : false,
+			dead : false,
+			AOE_type: ["wind_water", "wind_thunder", 
+				"water_fire", "water_thunder",
+				"fire_thunder"]
+		},
+		methods : {
+			randomAOE : async function() {
+				while(true) {
+					var num = Math.ceil(Math.random() * this.AOE_type.length) - 1;
+					if(num != this.last_index) {
+						this.last_index = num;
+						break;
+					}
+				}
+				this.dead = false;
+				this.showIcon = false;
+				this.hideAOE();
+				this.hideLines();
+				this.showLines(num)
+				await this.timeStop(2000);
+				this.hideLines();
+				this.showAOE(num);
+				if(!this.showIcon) {
+					await this.timeStop(500);
+					this.dead = true;
+				}
+			},
+			
+			hideLines : async function() {
+				this.wind_line = false;
+				this.water_line = false;
+				this.fire_line = false;
+				this.thunder_line = false;
+			},
+			
+			showLines : async function(num) {
+				switch(this.AOE_type[num]) {
+					case "wind_water":
+						this.wind_line = true;
+						this.water_line = true;
+						this.fire_line = false;
+						this.thunder_line = false;
+						break;
+					case "wind_thunder":
+						this.wind_line = true;
+						this.water_line = false;
+						this.fire_line = false;
+						this.thunder_line = true;
+						break;
+					case "water_fire":
+						this.wind_line = false;
+						this.water_line = true;
+						this.fire_line = true;
+						this.thunder_line = false;
+						break;
+					case "water_thunder":
+						this.wind_line = false;
+						this.water_line = true;
+						this.fire_line = false;
+						this.thunder_line = true;
+						break;
+					case "fire_thunder":
+						this.wind_line = false;
+						this.water_line = false;
+						this.fire_line = true;
+						this.thunder_line = true;
+						break;
+					default:
+						break;
+				}
+				
+			},
+			
+			hideAOE : async function() {
+				this.wind = false;
+				this.water = false;
+				this.fire = false;
+				this.thunder = false;
+			},
+			
+			showAOE : async function(num) {
+				switch(this.AOE_type[num]) {
+					case "wind_water":
+						this.wind = true;
+						this.water = true;
+						this.fire = false;
+						this.thunder = false;
+						break;
+					case "wind_thunder":
+						this.wind = true;
+						this.water = false;
+						this.fire = false;
+						this.thunder = true;
+						break;
+					case "water_fire":
+						this.wind = false;
+						this.water = true;
+						this.fire = true;
+						this.thunder = false;
+						break;
+					case "water_thunder":
+						this.wind = false;
+						this.water = true;
+						this.fire = false;
+						this.thunder = true;
+						break;
+					case "fire_thunder":
+						this.wind = false;
+						this.water = false;
+						this.fire = true;
+						this.thunder = true;
+						break;
+					default:
+						break;
+					
+				}			
+			},
+			timeStop: async function(ms) {
+				return new Promise(resolve => setTimeout(resolve, ms));
+			},
+			putIcon(e) {
+				if(this.wind || this.water || this.fire || this.thunder || this.showIcon) {
+					
+				} else {
+					this.tranLeft = (e.pageX - 13) + 'px';
+					this.tranTop = (e.pageY - 13) + 'px';
+					this.showIcon = true;
+					console.log(this.tranLeft + ' ' + this.tranTop);
+					document.getElementById("icon").style.top = this.tranTop;
+					document.getElementById("icon").style.left = this.tranLeft;
+				}
+			}
+		}
+	})
+</script>
+
+</html>
